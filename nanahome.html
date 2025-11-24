@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="designs.css">
+    <!-- Add Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+
+<header class="green-background">
+    <div class="text">
+        <h1>HAPPY BIRTHDAY!</h1> 
+        <h2>HAPPY 20TH BIRTHDAY, NANA BONANA! IT'S YOUR DAY TODAY!</h2>
+    </div>
+    <div class="foto"></div>
+
+    <div class="swiper"
+         x-data="{ swiper: null }"
+         x-ref="swiperContainer"
+         x-init="
+             swiper = new Swiper($refs.swiperContainer, {
+                 effect: 'coverflow',
+                 grabCursor: true,
+                 centeredSlides: true,
+                 slidesPerView: 3,
+                 coverflowEffect: {
+                     rotate: 0,
+                     stretch: 0,
+                     depth: 100,
+                     modifier: 2,
+                     slideShadows: true
+                 },
+                 keyboard: {
+                     enabled: true
+                 },
+                 mousewheel: {
+                     thresholdDelta: 70
+                 },
+                 spaceBetween: 70,
+                 loop: false,
+                 pagination: {
+                     el: '.swiper-pagination',
+                     clickable: true
+                 },
+                 init: false // Delay initialization
+             });
+             $nextTick(() => {
+                 swiper.init();
+                 swiper.update();
+             });
+         ">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide swiper-slide--one"></div>
+            <div class="swiper-slide swiper-slide--two"></div>
+            <div class="swiper-slide swiper-slide--three"></div>
+            <div class="swiper-slide swiper-slide--four"></div>
+            <div class="swiper-slide swiper-slide--five"></div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</header>
+    
+</body>
+</html>

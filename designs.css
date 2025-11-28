@@ -7,11 +7,11 @@
 
 .green-background {
     padding: 6px 0;
-    height: 85vh;
+    height: 90vh;
     min-height: 450px;
     position: relative;
     overflow: hidden;
-    background-color: #bf6fd3c0;
+         background: linear-gradient(135deg, #e7a5a7b9 0%, #fad0c4 100%);
 }
 
 .text h1
@@ -44,7 +44,7 @@ margin-top: 2vh;
 .swiper {
     position: absolute;
     bottom: -100px; /* Adjust if needed for visibility */
-    left: 10%;
+    left: 13%;
     transform: translateX(-20%); /* Changed to -50% for better centering */
     width: 1100px; /* Fixed potential typo from 900% */
     height: 60%;
@@ -58,54 +58,403 @@ margin-top: 2vh;
 .swiper-slide {
     width: 400px;
     height: 90%;
-    filter: blur(100px);
     border-radius: 40px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-start;
+
 }
 
 .swiper-pagination {
     top: 500px;
+
+    
 }
 
-.swiper-slide-active {
-    filter: blur(0);
+/* Make pagination sit relative to the swiper container and responsive */
+.swiper .swiper-pagination {
+    position: absolute;
+    left: 100%;
+    transform: translateX(10%);
+    bottom: 8px;
+    top: auto;
 }
+
+
 
 .swiper-slide--one {
     background: linear-gradient(to top, #1a698b5b, #28fff400, #2c536400),
-    url(https://i.pinimg.com/1200x/73/2b/39/732b39bdb3687421b29588dd4eaba442.jpg) no-repeat 50% 50% / cover;
-    filter: brightness(1) saturate(4);
+    url('nana.jpg') no-repeat 50% 50% / cover;
+    filter: brightness(1.1) saturate(1.3) contrast(1.05) sepia(0.15) hue-rotate(-5deg);
 }
 
 .swiper-slide--two {
     background: linear-gradient(to top, #1a698b5b, #28fff400, #2c536400),
-    url(https://i.pinimg.com/736x/bf/50/0d/bf500d03b18e6e0323c067acfab7a173.jpg) no-repeat 50% 50% / cover;
-    filter: brightness(1) saturate(4);
+    url('nana2.jpg') no-repeat 50% 50% / cover;
+  filter: brightness(1.1) saturate(1.3) contrast(1.05) sepia(0.15) hue-rotate(-5deg);
 }
 
 .swiper-slide--three {
-    background: linear-gradient(to top, #1a698b5b, #28fff400, #2c536400),
-    url(https://i.pinimg.com/736x/b0/d8/72/b0d87294c1ba861dfd20d940725d58b7.jpg) no-repeat 50% 50% / cover;
-    filter: brightness(1) saturate(4);
+    background: url('nana4.jpg');
+background-size: cover;
+background-position: 50% 50%;
+background-repeat: no-repeat;
+filter: brightness(1.1) saturate(1.3) contrast(1.05) sepia(0.15) hue-rotate(-5deg);
 }
 
 .swiper-slide--four {
     background: linear-gradient(to top, #1a698b5b, #28fff400, #2c536400),
-    url(https://i.pinimg.com/1200x/b8/4a/91/b84a91cb4f3969368d86ad7255ccf1ec.jpg) no-repeat 50% 50% / cover;
-    filter: brightness(1) saturate(4);
+    url('nana5.jpg') no-repeat 50% 50% / cover;
+  filter: brightness(1.1) saturate(1.3) contrast(1.05) sepia(0.15) hue-rotate(-5deg);
 }
 
 .swiper-slide--five {
     background: linear-gradient(to top, #1a698b5b, #28fff400, #2c536400),
-    url(https://i.pinimg.com/736x/e0/39/65/e039657ba2279a98cc4dbe8cc3b58ff3.jpg) no-repeat 50% 50% / cover;
-    filter: brightness(1) saturate(4);
+    url('nana6.jpg') no-repeat 50% 50% / cover;
+ filter: brightness(1.1) saturate(1.3) contrast(1.05) sepia(0.15) hue-rotate(-5deg);
 }
 
 .swiper-3d .swiper-slide-shadow-left,
 .swiper-3d .swiper-slide-shadow-right {
     background-image: none;
 }
-ss
+
+  @media (min-width: 834px) and (max-width: 1194px) {
+.green-background {
+height: 92vh;
+}
+
+
+.text h1 {
+font-size: 3.4em;
+margin-top: 3vh;
+}
+
+.text h2 {
+font-size: 1.4em;
+}
+
+.swiper {
+height: 58%;
+margin-top: -10px;
+margin-left: 100%;
+
+}
+
+.swiper-slide {
+width: 260px;
+height: 85%;
+border-radius: 18px;
+}
+}
+
+.floating-hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1; /* Changed from -1 to 1 to appear above background but below content */
+}
+
+.floating-heart {
+    position: absolute;
+    opacity: 0.7; /* Changed from 100px (invalid) to 0.7 for proper transparency */
+    animation: float 6s ease-in-out infinite;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2)); /* Added shadow for better visibility */
+}
+ .floating-heart:nth-child(1) {
+            top: 15%;
+            left: 2%;
+            animation-delay: 0s;
+            fill: #b60f30;
+            width: 35px;
+            height: 35px;
+        }
+
+        .floating-heart:nth-child(2) {
+            top: 25%;
+            right: 2%;
+            animation-delay: 1.5s;
+            fill: #26030a;
+            width: 25px;
+            height: 25px;
+        }
+
+        .floating-heart:nth-child(3) {
+            top: 60%;
+            left: 2%;
+            animation-delay: 3s;
+            fill: #ff0033;
+            width: 40px;
+            height: 40px;
+        }
+
+        .floating-heart:nth-child(4) {
+            top: 70%;
+            right: 2%;
+            animation-delay: 4.5s;
+            fill: #cc4cff;
+            width: 30px;
+            height: 30px;
+        }
+
+        .floating-heart:nth-child(5) {
+            top: 10%;
+            right: 5%;
+            animation-delay: 2s;
+            fill: #ff6b9c;
+            width: 20px;
+            height: 20px;
+        }
+
+        .floating-heart:nth-child(6) {
+            top: 80%;
+            left: 5%;
+            animation-delay: 5s;
+            fill: #b33951;
+            width: 28px;
+            height: 28px;
+        }
+
+        .floating-heart:nth-child(7) {
+            top: 45%;
+            right: 3%;
+            animation-delay: 1s;
+            fill: #ff4081;
+            width: 22px;
+            height: 22px;
+        }
+
+        .floating-heart:nth-child(8) {
+            top: 35%;
+            left: 3%;
+            animation-delay: 3.5s;
+            fill: #ff9a9e;
+            width: 32px;
+            height: 32px;
+        }
+
+        .floating-heart:nth-child(9) {
+            top: 5%;
+            left: 5%;
+            animation-delay: 2.5s;
+            fill: #ff1493;
+            width: 18px;
+            height: 18px;
+        }
+
+        .floating-heart:nth-child(10) {
+            top: 90%;
+            right: 5%;
+            animation-delay: 6s;
+            fill: #c71585;
+            width: 26px;
+            height: 26px;
+        }
+
+        .floating-heart:nth-child(11) {
+            top: 8%;
+            right: 8%;
+            animation-delay: 1.2s;
+            fill: #db7093;
+            width: 24px;
+            height: 24px;
+        }
+
+        .floating-heart:nth-child(12) {
+            top: 88%;
+            left: 8%;
+            animation-delay: 4.2s;
+            fill: #ff69b4;
+            width: 20px;
+            height: 20px;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px) rotate(0deg) scale(1);
+            }
+            33% {
+                transform: translateY(-15px) rotate(5deg) scale(1.05);
+            }
+            66% {
+                transform: translateY(-25px) rotate(-5deg) scale(1.1);
+            }
+            100% {
+                transform: translateY(0px) rotate(0deg) scale(1);
+            }
+        }
+/* iPad Pro 11" landscape specific adjustments - FIXED */
+@media (min-width: 834px) and (max-width: 1194px) {
+    .green-background {
+        height: 92vh;
+    }
+
+    .text h1 {
+        font-size: 3.4em;
+        margin-top: 3vh;
+    }
+
+    .text h2 {
+        font-size: 1.4em;
+    }
+
+    .swiper {
+        height: 58%;
+        margin-top: -10px;
+        /* REMOVED: margin-left: 100%; - This was pushing it off screen */
+        width: 90%; /* Make swiper responsive */
+        left: 45%; /* Keep it centered */
+        transform: translateX(-50%); /* Center properly */
+    }
+
+    .swiper-slide {
+        width: 260px;
+        height: 85%;
+        border-radius: 18px;
+    }
+    
+    /* Fix pagination for iPad */
+    .swiper .swiper-pagination {
+        left: 20%;
+        transform: translateX(-50%);
+    }
+}
+
+/* Additional iPad Pro landscape optimization */
+@media (min-width: 834px) and (max-width: 1194px) and (orientation: landscape) {
+    .green-background {
+        height: 100vh;
+    }
+
+    .swiper {
+        width: 90%; /* Slightly narrower for landscape */
+        bottom: -50px; /* Adjust bottom position */
+    }
+
+    .text h1 {
+        font-size: 3.4em;
+        margin-top: 8vh;
+    }
+
+    .text h2 {
+        font-size: 1.4em;
+    }
+
+    /* Adjust hearts for iPad Pro landscape */
+    .floating-heart:nth-child(1) {
+        top: 15%;
+        left: 1%;
+        width: 30px;
+        height: 30px;
+    }
+
+    .floating-heart:nth-child(2) {
+        top: 25%;
+        right: 1%;
+        width: 20px;
+        height: 20px;
+    }
+
+    .floating-heart:nth-child(3) {
+        top: 60%;
+        left: 1%;
+        width: 35px;
+        height: 35px;
+    }
+
+    .floating-heart:nth-child(4) {
+        top: 70%;
+        right: 1%;
+        width: 25px;
+        height: 25px;
+    }
+
+    .floating-heart:nth-child(5) {
+        top: 10%;
+        right: 3%;
+        width: 18px;
+        height: 18px;
+    }
+
+    .floating-heart:nth-child(6) {
+        top: 80%;
+        left: 3%;
+        width: 24px;
+        height: 24px;
+    }
+
+    .floating-heart:nth-child(7) {
+        top: 45%;
+        right: 2%;
+        width: 20px;
+        height: 20px;
+    }
+
+    .floating-heart:nth-child(8) {
+        top: 35%;
+        left: 2%;
+        width: 28px;
+        height: 28px;
+    }
+
+    .floating-heart:nth-child(9) {
+        top: 5%;
+        left: 3%;
+        width: 16px;
+        height: 16px;
+    }
+
+    .floating-heart:nth-child(10) {
+        top: 90%;
+        right: 3%;
+        width: 22px;
+        height: 22px;
+    }
+
+    .floating-heart:nth-child(11) {
+        top: 8%;
+        right: 5%;
+        width: 20px;
+        height: 20px;
+    }
+
+    .floating-heart:nth-child(12) {
+        top: 88%;
+        left: 5%;
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* Additional responsive adjustments for smaller screens */
+@media (max-width: 833px) {
+    .text h1 {
+        font-size: 2.5em;
+        margin-top: 10vh;
+    }
+
+    .text h2 {
+        font-size: 1.2em;
+    }
+
+    .swiper {
+        width: 95%;
+        height: 50%;
+    }
+
+    .swiper-slide {
+        width: 200px;
+        height: 80%;
+        border-radius: 15px;
+    }
+
+    /* Make hearts smaller on mobile */
+    .floating-heart {
+        width: 15px !important;
+        height: 15px !important;
+    }
+}

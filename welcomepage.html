@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cœur Explosif Géant</title>
+    <link rel="stylesheet" href="welcomepage.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+      <div class="container" x-data="heartApp()">
+        <h1>A GIFT JUST FOR YOU!</h1>
+        <div class="heart-container" x-data="heartApp()">
+            <div x-text="clickCount + ' / ' + MAX_CLICKS" id="click-counter"></div>
+            
+            <button @click="handleHeartClick()" id="heart-button">
+               
+                <svg 
+                    version="1.1" 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    viewBox="0 0 200 200" 
+                    class="heart-icon"
+                    :class="heartHidden ? 'heart-hidden' : ''"
+                    :style="`transform: scale(${1 + clickCount * 0.1})`">
+                    
+                    <!-- Gradient definition -->
+                    <defs>
+                        <linearGradient id="heart-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#f1b4b4;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#de2b46c4;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- Beautiful heart path -->
+                    <path class="heart-shape" d="M100,30 C70,5 25,20 25,65 C25,110 65,140 100,175 C135,140 175,110 175,65 C175,20 130,5 100,30 Z"/>
+                </svg>
+            </button>
+            
+            <div id="particles-container" x-ref="particlesContainer"></div>
+        </div>
+        
+    
+  <div class="signature" x-text="messageText"></div>
+
+     
+
+    <!-- Floating hearts in the background -->
+    <div class="floating-hearts">
+        <svg class="floating-heart" viewBox="0 0 200 200" width="50" height="50">
+            <path fill="#ff9a9e" d="M100,30 C70,5 25,20 25,65 C25,110 65,140 100,175 C135,140 175,110 175,65 C175,20 130,5 100,30 Z"/>
+        </svg>
+        <svg class="floating-heart" viewBox="0 0 200 200" width="40" height="40">
+            <path fill="#fad0c4" d="M100,30 C70,5 25,20 25,65 C25,110 65,140 100,175 C135,140 175,110 175,65 C175,20 130,5 100,30 Z"/>
+        </svg>
+        <svg class="floating-heart" viewBox="0 0 200 200" width="60" height="60">
+            <path fill="#ff6b9c" d="M100,30 C70,5 25,20 25,65 C25,110 65,140 100,175 C135,140 175,110 175,65 C175,20 130,5 100,30 Z"/>
+        </svg>
+        <svg class="floating-heart" viewBox="0 0 200 200" width="45" height="45">
+            <path fill="#b33951" d="M100,30 C70,5 25,20 25,65 C25,110 65,140 100,175 C135,140 175,110 175,65 C175,20 130,5 100,30 Z"/>
+        </svg>
+    </div>
+
+     <script>
+    function heartApp() {
+      return {
+        clickCount: 0,
+        MAX_CLICKS: 10,
+        heartHidden: false,
+        messageText: 'TAP THE HEART',
+        exploded: false,
+
+        handleHeartClick() {
+          if (this.clickCount >= this.MAX_CLICKS) return;
+          this.clickCount++;
+          if (this.clickCount === this.MAX_CLICKS) {
+            this.explodeHeart();
+          }
+        },
+
+        explodeHeart() {
+          this.heartHidden = true;
+          // update the on-screen guidance before redirect
+          this.messageText = 'OPENING YOUR PRESENT.....';
+
+          // reduced particle count for smoother performance
+          const NUMBER_OF_PARTICLES = 350;
+          const EXPLOSION_RADIUS = 360; // scaled down since your SVG is 200x200
+
+          for (let i = 0; i < NUMBER_OF_PARTICLES; i++) {
+            const particle = this.createParticle();
+            this.$refs.particlesContainer.appendChild(particle);
+
+            const angle = Math.random() * Math.PI * 2;
+            const distance = Math.random() * EXPLOSION_RADIUS;
+
+            const randomX = Math.cos(angle) * distance;
+            const randomY = Math.sin(angle) * distance;
+
+            particle.style.setProperty('--x', `${randomX}px`);
+            particle.style.setProperty('--y', `${randomY}px`);
+
+            const delay = Math.random() * 0.35;
+            particle.style.animation = `explode 1.2s ease-out ${delay}s forwards`;
+          }
+
+          // redirect AFTER animation. Change path if needed.
+          setTimeout(() => {
+            window.location.href = 'nanahome.html';
+          }, 1500);
+        },
+
+        createParticle() {
+          // create a small SVG heart particle — set explicit fill so gradient scoping isn't required
+          const svgNS = "http://www.w3.org/2000/svg";
+
+          const svg = document.createElementNS(svgNS, "svg");
+          svg.setAttribute("viewBox", "0 0 200 200");
+          svg.setAttribute("class", "particle");
+          svg.setAttribute("width", "22");
+          svg.setAttribute("height", "22");
+          // optional: make it slightly random size
+          const size = 14 + Math.floor(Math.random() * 12);
+          svg.setAttribute("width", size.toString());
+          svg.setAttribute("height", size.toString());
+
+          const path = document.createElementNS(svgNS, "path");
+          path.setAttribute("d", "M100,30 C70,5 25,20 25,65 C25,110 65,140 100,175 C135,140 175,110 175,65 C175,20 130,5 100,30 Z");
+
+          // give particle a random warm color to match style (so gradient scoping is not required)
+          const colors = ['#ff9a9e','#de2b46','#ff6b9c','#b33951','#f79aa9'];
+          path.setAttribute("fill", colors[Math.floor(Math.random()*colors.length)]);
+          path.setAttribute("stroke", "#b60f30");
+          path.setAttribute("stroke-width", "1");
+
+          svg.appendChild(path);
+
+          // Initially center the particle; CSS .particle uses top/left:50% translate(-50%,-50%)
+          return svg;
+        },
+
+        resetGame() {
+          // not used before redirect, but keep for safety if you reuse elsewhere
+          this.clickCount = 0;
+          this.heartHidden = false;
+          if (this.$refs && this.$refs.particlesContainer) {
+            this.$refs.particlesContainer.innerHTML = '';
+          }
+        }
+      };
+    }
+
+ 
+  </script>
+
+        
+</body>
+</html>

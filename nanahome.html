@@ -18,7 +18,7 @@
         <h2>HAPPY 20TH BIRTHDAY, NANA BONANA! IT'S YOUR DAY TODAY!</h2>
     </div>
     <div class="foto"></div>
-
+    
     <div class="swiper"
          x-data="{ swiper: null }"
          x-ref="swiperContainer"
@@ -42,7 +42,13 @@
                      thresholdDelta: 70
                  },
                  spaceBetween: 70,
-                 loop: false,
+                 loop: true, // enable infinite looping
+                 autoplay: {
+                     delay: 2000, // time between transitions (ms)
+                     disableOnInteraction: false,
+                     pauseOnMouseEnter: false
+                 },
+                 speed: 1200, // transition speed (ms)
                  pagination: {
                      el: '.swiper-pagination',
                      clickable: true
@@ -53,7 +59,7 @@
                  swiper.init();
                  swiper.update();
              });
-         ">
+         "\>
         <div class="swiper-wrapper">
             <div class="swiper-slide swiper-slide--one"></div>
             <div class="swiper-slide swiper-slide--two"></div>
@@ -61,6 +67,47 @@
             <div class="swiper-slide swiper-slide--four"></div>
             <div class="swiper-slide swiper-slide--five"></div>
         </div>
+
+        <div class="floating-hearts">
+        <svg class="floating-heart" viewBox="0 0 200 200">
+            <path d="M100,30 C70,5 25,20 25,65 C25,110 65,140 100,175 C135,140 175,110 175,65 C175,20 130,5 100,30 Z"/>
+        </svg>
+        <svg class="floating-heart" viewBox="0 0 200 200">
+            <path d="M100,30 C70,5 25,20 25,65 C25,110 65,140 100,175 C135,140 175,110 175,65 C175,20 130,5 100,30 Z"/>
+        </svg>
+        <svg class="floating-heart" viewBox="0 0 200 200">
+            <path d="M100,30 C70,5 25,20 25,65 C25,110 65,140 100,175 C135,140 175,110 175,65 C175,20 130,5 100,30 Z"/>
+        </svg>
+        <svg class="floating-heart" viewBox="0 0 200 200">
+            <path d="M100,30 C70,5 25,20 25,65 C25,110 65,140 100,175 C135,140 175,110 175,65 C175,20 130,5 100,30 Z"/>
+        </svg>
+        <svg class="floating-heart" viewBox="0 0 200 200">
+            <path d="M100,30 C70,5 25,20 25,65 C25,110 65,140 100,175 C135,140 175,110 175,65 C175,20 130,5 100,30 Z"/>
+        </svg>
+        <svg class="floating-heart" viewBox="0 0 200 200">
+            <path d="M100,30 C70,5 25,20 25,65 C25,110 65,140 100,175 C135,140 175,110 175,65 C175,20 130,5 100,30 Z"/>
+        </svg>
+        <svg class="floating-heart" viewBox="0 0 200 200">
+            <path d="M100,30 C70,5 25,20 25,65 C25,110 65,140 100,175 C135,140 175,110 175,65 C175,20 130,5 100,30 Z"/>
+        </svg>
+        <svg class="floating-heart" viewBox="0 0 200 200">
+            <path d="M100,30 C70,5 25,20 25,65 C25,110 65,140 100,175 C135,140 175,110 175,65 C175,20 130,5 100,30 Z"/>
+        </svg>
+        <svg class="floating-heart" viewBox="0 0 200 200">
+            <path d="M100,30 C70,5 25,20 25,65 C25,110 65,140 100,175 C135,140 175,110 175,65 C175,20 130,5 100,30 Z"/>
+        </svg>
+        <svg class="floating-heart" viewBox="0 0 200 200">
+            <path d="M100,30 C70,5 25,20 25,65 C25,110 65,140 100,175 C135,140 175,110 175,65 C175,20 130,5 100,30 Z"/>
+        </svg>
+        <svg class="floating-heart" viewBox="0 0 200 200">
+            <path d="M100,30 C70,5 25,20 25,65 C25,110 65,140 100,175 C135,140 175,110 175,65 C175,20 130,5 100,30 Z"/>
+        </svg>
+        <svg class="floating-heart" viewBox="0 0 200 200">
+            <path d="M100,30 C70,5 25,20 25,65 C25,110 65,140 100,175 C135,140 175,110 175,65 C175,20 130,5 100,30 Z"/>
+        </svg>
+    </div>
+
+    
         <div class="swiper-pagination"></div>
     </div>
 </header>

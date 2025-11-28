@@ -1,0 +1,249 @@
+  * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, #e7a5a7b9 0%, #fad0c4 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: #5a2a3a;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.3rem;
+            margin-bottom: 10vh;
+            color: #b33951;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .heart-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+        }
+
+        #click-counter {
+            position: absolute;
+            top: -80px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+            background-color: rgb(83, 22, 35);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        #heart-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            outline: none;
+            z-index: 5;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #heart-button:hover {
+            transform: scale(1.03);
+        }
+
+        .tap-text {
+            position: absolute;
+            top: -70px;
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #b33951;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .heart-icon {
+            width: 400px;
+            height: 400px;
+            filter: drop-shadow(0 10px 25px rgb(243, 0, 49));
+            transition: all 0.5s ease;
+        }
+
+        .heart-shape {
+            fill: url(#heart-gradient);
+            stroke: #b60f30;
+            stroke-width: 8;
+            transition: all 0.3s ease;
+        }
+
+        .heart-hidden {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        #particles-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            fill: url(#heart-gradient);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .message {
+            margin-top: 30px;
+            font-size: 1.3rem;
+            color: #7a3b4d;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes explode {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--x), var(--y)) scale(0) rotate(360deg);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+
+        .floating-hearts {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-heart {
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+            width: 8vw;
+            height: 8vw;
+            min-width: 32px;
+            min-height: 32px;
+            max-width: 70px;
+            max-height: 70px;
+        }
+
+        .floating-heart:nth-child(1) {
+            top: 8vw;
+            left: 8vw;
+            animation-delay: 0s;
+        }
+
+        .floating-heart:nth-child(2) {
+            top: 16vw;
+            right: 12vw;
+            animation-delay: 1s;
+             color:#26030a;
+        }
+
+        .floating-heart:nth-child(3) {
+            bottom: 20vw;
+            left: 12vw;
+            animation-delay: 2s;
+             color:#ff0033;
+        }
+
+        .floating-heart:nth-child(4) {
+            bottom: 10vw;
+            right: 8vw;
+            animation-delay: 3s;
+        }
+
+        @media (max-width: 600px) {
+            .floating-heart {
+                width: 14vw;
+                height: 14vw;
+                min-width: 20px;
+                min-height: 20px;
+                max-width: 40px;
+                max-height: 40px;
+            }
+            .floating-heart:nth-child(1) { top: 12vw; left: 6vw; }
+            .floating-heart:nth-child(2) { top: 22vw; right: 8vw; }
+            .floating-heart:nth-child(3) { bottom: 18vw; left: 8vw; }
+            .floating-heart:nth-child(4) { bottom: 8vw; right: 4vw; }
+        }
+
+        .signature {
+            margin-top: 20px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #fe0033;
+        }
+
+            .signature1 {
+            margin-top: 20px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #fe0033;
+        }

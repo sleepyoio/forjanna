@@ -83,9 +83,10 @@
           // update the on-screen guidance before redirect
           this.messageText = 'OPENING YOUR PRESENT.....';
 
-          // reduced particle count for smoother performance
+              // reduced particle count for smoother performance
           const NUMBER_OF_PARTICLES = 350;
           const EXPLOSION_RADIUS = 360; // scaled down since your SVG is 200x200
+
 
           for (let i = 0; i < NUMBER_OF_PARTICLES; i++) {
             const particle = this.createParticle();
@@ -102,13 +103,16 @@
 
             const delay = Math.random() * 0.35;
             particle.style.animation = `explode 1.2s ease-out ${delay}s forwards`;
-          }
+          } 
+          
 
           // redirect AFTER animation. Change path if needed.
           setTimeout(() => {
             window.location.href = 'nanahome.html';
           }, 1500);
-        },
+        }, 
+      
+        
 
         createParticle() {
           // create a small SVG heart particle — set explicit fill so gradient scoping isn't required

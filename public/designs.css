@@ -85,18 +85,18 @@ margin-top: 2vh;
 
 .swiper-slide--one {
     background: linear-gradient(to top, #1a698b5b, #28fff400, #2c536400),
-    url('nana.jpg') no-repeat 50% 50% / cover;
+    url('../images/nana.jpg') no-repeat 50% 50% / cover;
     filter: brightness(1.1) saturate(1.3) contrast(1.05) sepia(0.15) hue-rotate(-5deg);
 }
 
 .swiper-slide--two {
     background: linear-gradient(to top, #1a698b5b, #28fff400, #2c536400),
-    url('nana2.jpg') no-repeat 50% 50% / cover;
+    url('../images/nana2.jpg') no-repeat 50% 50% / cover;
   filter: brightness(1.1) saturate(1.3) contrast(1.05) sepia(0.15) hue-rotate(-5deg);
 }
 
 .swiper-slide--three {
-    background: url('nana4.jpg');
+    background: url('../images/nana4.jpg');
 background-size: cover;
 background-position: 50% 50%;
 background-repeat: no-repeat;
@@ -105,13 +105,13 @@ filter: brightness(1.1) saturate(1.3) contrast(1.05) sepia(0.15) hue-rotate(-5de
 
 .swiper-slide--four {
     background: linear-gradient(to top, #1a698b5b, #28fff400, #2c536400),
-    url('nana5.jpg') no-repeat 50% 50% / cover;
+    url('../images/nana5.jpg') no-repeat 50% 50% / cover;
   filter: brightness(1.1) saturate(1.3) contrast(1.05) sepia(0.15) hue-rotate(-5deg);
 }
 
 .swiper-slide--five {
     background: linear-gradient(to top, #1a698b5b, #28fff400, #2c536400),
-    url('nana6.jpg') no-repeat 50% 50% / cover;
+    url('../images/nana6.jpg') no-repeat 50% 50% / cover;
  filter: brightness(1.1) saturate(1.3) contrast(1.05) sepia(0.15) hue-rotate(-5deg);
 }
 
